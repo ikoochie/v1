@@ -7,7 +7,7 @@ const IconLogo = () => (
     x="0px"
     y="0px"
     viewBox="0 0 300 300"
-    enable-background="new 0 0 300 300"
+    // enable-background="new 0 0 300 300"
   >
     <g id="A">
       <path

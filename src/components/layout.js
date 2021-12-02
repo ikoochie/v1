@@ -8,6 +8,7 @@ import Header from "./header"
 
 import GlobalCSS from "../styles/GlobalCSS"
 import theme from "../styles/theme"
+import Loader from "./loader"
 
 const StyledSection = styled.div`
   display: flex;
@@ -32,9 +33,12 @@ const Layout = ({ children, location }) => {
   }
 
   useEffect(() => {
+    console.log(isLoading)
     if (isLoading) {
       return
     }
+
+    console.log(location.hash)
 
     if (location.hash) {
       const id = location.hash.substring(1)
@@ -90,12 +94,12 @@ const Layout = ({ children, location }) => {
         <ThemeProvider theme={theme}>
           <GlobalCSS />
 
-          <a className="skip-to-content" href="#content">
+          {/* <a className="skip-to-content" href="#content">
             Skip to Content
-          </a>
+          </a> */}
 
           {isLoading && isHome ? (
-            <div>Loader here</div>
+            <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
             <StyledSection>Hello World {children}</StyledSection>
           )}
